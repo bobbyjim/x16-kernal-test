@@ -62,7 +62,8 @@ void testAll()
    sum += showResult("setnam setlfs load", kernal_test_setnam_setlfs_load());
 
    textcolor( err == 0 ? COLOR_GREEN : COLOR_LIGHTRED );
-   cprintf("\r\n %16s : %d", "errors", err);
+   cprintf("\r\n %16s : %d\r\n\r\n", "errors", err);
+   cputs("done!\r\n");
 }
 
 void setregs(
