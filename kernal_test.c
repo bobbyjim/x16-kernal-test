@@ -1,4 +1,5 @@
 #include <conio.h>
+#include <cx16.h>
 
 #include "kernal_test.h"
 
@@ -9,6 +10,7 @@ int sum = 0;
 
 void banner()
 {
+   textcolor( COLOR_ORANGE );
    cputs("        --------------------------------------------------------------\r\n");
    cputs("        '##:::'##:'########:'########::'##::: ##::::'###::::'##:::::::\r\n");
    cputs("         ##::'##:: ##.....:: ##.... ##: ###:: ##:::'## ##::: ##:::::::\r\n");
@@ -26,18 +28,20 @@ void banner()
    cputs("        ::::::::::::: ##:::: ##:::::::'##::: ##:::: ##::::::::::::::::\r\n");
    cputs("        ::::::::::::: ##:::: ########:. ######::::: ##::::::::::::::::\r\n");
    cputs("        :::::::::::::..:::::........:::......::::::..:::::::::::::::::\r\n");
-   cputs("        --------------------------------------------------------------\r\n");
+   cputs("        --------------------------------------------------------------\r\n\r\n");
 }
 
 void testAll()
 {
     int x;
 
-    //clrscr();
+    bgcolor( COLOR_BLACK );
+    clrscr();
     banner();
 
-    cprintf("x16 kernal test program\r\n\r\n");
-    cprintf("if this is in a \"pet\" font, then load to vera works.\r\n\r\n");
+    textcolor( COLOR_LIGHTBLUE );
+    cprintf("  x16 kernal test program\r\n\r\n");
+    cprintf("  if this is in a \"pet\" font, then load to vera works.\r\n\r\n");
     cprintf(" %20s : %s     %2s   %2s   %2s  %4s  %s \r\n ", 
         "test name",
         "rslt",
@@ -57,6 +61,7 @@ void testAll()
    sum += showResult("membot/w", kernal_test_membot_write());
    sum += showResult("setnam setlfs load", kernal_test_setnam_setlfs_load());
 
+   textcolor( err == 0 ? COLOR_GREEN : COLOR_LIGHTRED );
    cprintf("\r\n %16s : %d", "errors", err);
 }
 
