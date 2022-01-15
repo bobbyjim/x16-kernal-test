@@ -60,6 +60,9 @@ void testAll()
    sum += showResult("membot/r", kernal_test_membot_read());
    sum += showResult("membot/w", kernal_test_membot_write());
    sum += showResult("setnam setlfs load", kernal_test_setnam_setlfs_load());
+   sum += showResult("iobase", kernal_test_iobase());
+   sum += showResult("settim", kernal_test_settim());
+   sum += showResult("rdtim", kernal_test_rdtim());
 
    textcolor( err == 0 ? COLOR_GREEN : COLOR_LIGHTRED );
    cprintf("\r\n %16s : %d\r\n\r\n", "errors", err);
@@ -117,4 +120,19 @@ unsigned char y_register()
 unsigned pc()
 {
     return testregs.pc;
+}
+
+unsigned char accumulator_is(int v)
+{
+    return testregs.a == v;
+}
+
+unsigned char x_register_is(int v)
+{
+    return testregs.x == v;
+}
+
+unsigned char y_register_is(int v)
+{
+    return testregs.y == v;
 }

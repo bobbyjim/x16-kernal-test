@@ -12,3 +12,9 @@ unsigned char kernal_test_chrout(char c)
     if (c != 'a') return 1; // error
     return 0;
 }
+
+unsigned char kernal_test_iobase()
+{
+    unsigned foo = cbm_k_iobase();
+    return cbm_k_iobase() != 40800u;
+}

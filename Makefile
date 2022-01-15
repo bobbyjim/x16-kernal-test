@@ -1,4 +1,4 @@
-SOURCES = main.c kernal_test.c kernal_test_chrout.c kernal_test_mem.c kernal_test_load.c
+SOURCES = main.c kernal_test.c kernal_test_io.c kernal_test_mem.c kernal_test_load.c kernal_test_time.c
 
 PROGRAM = TEST
 
